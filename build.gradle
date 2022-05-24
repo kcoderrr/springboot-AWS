@@ -1,0 +1,33 @@
+buildscript { //해당 프로젝트의 의존성관리를 위함
+    ext {
+        springBootVersion = '2.1.7.RELEASE'
+//        스프링부트 2.1.7 출시 버전을 의존성으로 받겠다.는 뜻
+    }
+    repositories {
+//        어떤 원격 저장소에서 받을지 정하는 곳
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+//        프로젝트 개발에 필요한 의존성을 선언하는 곳
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group 'com.jojoldu.book'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
